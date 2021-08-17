@@ -1,0 +1,27 @@
+schema: '2.0'
+stages:
+  load_raw_data:
+    cmd: python3 load_raw_data.py
+    deps:
+    - path: load_raw_data.py
+      md5: 32483d858ed408e2f757e0767088898c
+      size: 539
+    outs:
+    - path: data/raw
+      md5: c33b3a8aa13d8c85200d9e8d1947d574.dir
+      size: 193767143
+      nfiles: 2
+  prepare_data:
+    cmd: python3 prepare_data.py
+    deps:
+    - path: prepare_data.py
+      md5: 062609496e442bbf431177c6bef3a0e1
+      size: 1288
+    params:
+      params.yaml:
+        prepare_data.quant: 0.05
+    outs:
+    - path: data/prepared
+      md5: 447fb0a6e38a8a89f12652e252b542e2.dir
+      size: 67469851
+      nfiles: 1

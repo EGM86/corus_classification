@@ -1,0 +1,15 @@
+stages:
+  load_raw_data:
+    cmd: python3 load_raw_data.py
+    deps:
+    - load_raw_data.py
+    outs:
+    - data/raw
+  prepare_data:
+    cmd: python3 prepare_data.py
+    deps:
+    - prepare_data.py
+    params:
+    - prepare_data.quant
+    outs:
+    - data/prepared
