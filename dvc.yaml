@@ -1,0 +1,15 @@
+stages:
+  load_raw_data:
+    cmd: python corus_rubrication/load_raw_data.py
+    deps:
+    - corus_rubrication/load_raw_data.py
+    outs:
+    - corus_rubrication/data/raw/rt_data.csv
+  prepare_data:
+    cmd: python corus_rubrication/prepare_data.py
+    deps:
+    - corus_rubrication/data/raw/rt_data.csv
+    params:
+    - prepare_data.quant
+    outs:
+    - corus_rubrication/data/proceed/data_clean.csv

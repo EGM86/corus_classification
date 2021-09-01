@@ -1,0 +1,25 @@
+schema: '2.0'
+stages:
+  load_raw_data:
+    cmd: python corus_rubrication/load_raw_data.py
+    deps:
+    - path: corus_rubrication/load_raw_data.py
+      md5: e4928764f6d4ec28b6e3c4153c76cab1
+      size: 744
+    outs:
+    - path: corus_rubrication/data/raw/rt_data.csv
+      md5: d860875c2faaca3e84fcfe6fd63e9eb7
+      size: 132180578
+  prepare_data:
+    cmd: python corus_rubrication/prepare_data.py
+    deps:
+    - path: corus_rubrication/data/raw/rt_data.csv
+      md5: d860875c2faaca3e84fcfe6fd63e9eb7
+      size: 132180578
+    params:
+      params.yaml:
+        prepare_data.quant: 0.05
+    outs:
+    - path: corus_rubrication/data/proceed/data_clean.csv
+      md5: 44c335c59f91e5e7882b86583fd4396e
+      size: 67469851
