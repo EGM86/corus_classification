@@ -2,4 +2,6 @@ load_raw_data:
 
 prepare_data:
   quant : 0.05
-  
+
+predict_data:
+  quant : 0.05  
